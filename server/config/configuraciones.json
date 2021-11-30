@@ -1,0 +1,22 @@
+{
+    "configuraciones": [
+        {
+            "nombre": "Número secuenciales",
+            "longitud": 8, 
+            "prefijo": "COD",
+            "sufijo": ""
+        },
+        {
+            "nombre": "Números pares",
+            "longitud": 9, 
+            "prefijo": "PAR",
+            "sufijo": "PP"
+        },
+        {
+            "nombre": "Números primos",
+            "longitud": 12, 
+            "prefijo": "PRI",
+            "sufijo": "2021"
+        }
+    ] 
+}
