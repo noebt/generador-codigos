@@ -13,7 +13,7 @@ export class AppComponent {
   public selectedConfig : any
   public listaCupones : any
 
-  data = this.http.get<string[]>('/api');
+  data = this.http.get<string[]>('http://localhost:4201');
   
   constructor(private http : HttpClient) {
    }
@@ -26,7 +26,7 @@ export class AppComponent {
       },
     }).subscribe(
       datos => {this.listaCupones = datos},
-      error => console.log("ERROR REBUT: " + error));
+      error => console.log("ERROR: " + error));
   }
 }
 

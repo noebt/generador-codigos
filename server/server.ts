@@ -14,10 +14,8 @@ app.get('/', (req : Request, res :  Response) => {
 app.post('/', async (req, res) => {
     var numero = req.body.numero;
     var eleccion = req.body.eleccion;
-    console.log("Servidor ha recibido: " + numero + "-" + eleccion)
     var lista = elegirAlgoritmo(eleccion, numero)
     res.send(lista)
-    console.log("LISTA CUPONES: " + lista)
  });
 
 app.listen(4201, '127.0.0.1', function() {

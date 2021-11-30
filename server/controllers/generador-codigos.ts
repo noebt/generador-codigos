@@ -1,6 +1,6 @@
-const data = require("../config/configuraciones.json");
 import { parseListaCodigos, Codigo } from "../modelo/codigo"
 
+const data = require("../config/configuraciones.json");
 var listaConfig = parseListaCodigos(data);
 var listaCodigos : string[] = [] 
 
@@ -56,7 +56,6 @@ function esPrimo(numero: number) {
 export function getConfig (config: string) {
     for (var i = 0; i < listaConfig.length; ++i){
         if (listaConfig[i].nombre === config){
-            console.log("CONFIG = " + JSON.stringify(listaConfig[i]))
             return listaConfig[i]
         }
     }
