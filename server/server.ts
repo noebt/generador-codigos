@@ -8,14 +8,22 @@ app.use(cors());
 app.use(express.json())
 
 app.get('/', (req : Request, res :  Response) => {
-    res.send(listaNombresConfig())
+    try{
+        res.send(listaNombresConfig())
+    } catch (error){
+        console.log("ERROR:" + error)
+    }
 });
 
 app.post('/', async (req, res) => {
-    var numero = req.body.numero;
-    var eleccion = req.body.eleccion;
-    var lista = elegirAlgoritmo(eleccion, numero)
-    res.send(lista)
+    try {
+        var numero = req.body.numero;
+        var eleccion = req.body.eleccion;
+        var lista = elegirAlgoritmo(eleccion, numero)
+        res.send(lista)
+    }catch(error){
+        console.log("ERROR:" + error)
+    }
  });
 
 app.listen(4201, '127.0.0.1', function() {

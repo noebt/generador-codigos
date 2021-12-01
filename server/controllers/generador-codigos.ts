@@ -3,27 +3,25 @@ import { parseListaCodigos, Codigo } from "../modelo/codigo"
 const data = require("../config/configuraciones.json");
 var listaConfig = parseListaCodigos(data);
 var listaCodigos : string[] = [] 
+var elemento: string = ""
+var numeroCupon: string = ""
 
 function generadorSecuenciales(cupon: Codigo, cantidad: number){
-    var elemento: string
-    var numero: string
     var relleno : number = cupon.longitud - (cupon.prefijo.length) - (cupon.sufijo.length)
     for (var i = 0; i < cantidad; ++i){
-        numero = String(i)
-        elemento = numero.padStart(relleno, "0");
+        numeroCupon = String(i)
+        elemento = numeroCupon.padStart(relleno, "0");
         listaCodigos.push(cupon.prefijo + elemento + cupon.sufijo);
     }
     return listaCodigos
 }
 
 function generadorPares(cupon: Codigo, cantidad: number){
-    var elemento: string
-    var numero: string
     var relleno : number = cupon.longitud - (cupon.prefijo.length) - (cupon.sufijo.length)
     for (var i = 0; i < cantidad; i++){
         if (i % 2 == 0){
-            numero = String(i)
-            elemento = numero.padStart(relleno, "0");
+            numeroCupon = String(i)
+            elemento = numeroCupon.padStart(relleno, "0");
             listaCodigos.push(cupon.prefijo + elemento + cupon.sufijo);
         }else {
             cantidad ++
@@ -33,13 +31,11 @@ function generadorPares(cupon: Codigo, cantidad: number){
 }
 
 function generadorPrimos(cupon: Codigo, cantidad: number){
-    var elemento: string
-    var numero: string
     var relleno : number = cupon.longitud - (cupon.prefijo.length) - (cupon.sufijo.length)
     for (var i = 0; i < cantidad; ++i){
         if (esPrimo(i)){
-            numero = String(i)
-            elemento = numero.padStart(relleno, "0");
+            numeroCupon = String(i)
+            elemento = numeroCupon.padStart(relleno, "0");
             listaCodigos.push(cupon.prefijo + elemento + cupon.sufijo);
         }else
             cantidad++

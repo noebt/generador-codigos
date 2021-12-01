@@ -1,7 +1,7 @@
 {
     "configuraciones": [
         {
-            "nombre": "Número secuenciales",
+            "nombre": "Números secuenciales",
             "longitud": 8, 
             "prefijo": "COD",
             "sufijo": ""
