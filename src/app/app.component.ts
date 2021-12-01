@@ -15,8 +15,7 @@ export class AppComponent {
 
   data = this.http.get<string[]>('http://localhost:4201');
   
-  constructor(private http : HttpClient) {
-   }
+  constructor(private http : HttpClient) { }
 
    public async enviarDatos() {
     this.seleccion = {numero : this.inputNumero, eleccion : this.selectedConfig}

@@ -1,31 +1,37 @@
 import express from 'express';
-import { Request, Response, NextFunction }  from 'express';
-import { listaNombresConfig, getConfig, elegirAlgoritmo } from "./controllers/generador-codigos"
+import { Request, Response}  from 'express';
+import { EleccionConfiguracion } from './controllers/eleccion-configuracion';
 
 var cors = require('cors');
 const app = express();
+const puerto = 4201;
 app.use(cors());
 app.use(express.json())
+var configuracion : EleccionConfiguracion = new EleccionConfiguracion()
 
+//Envía los nombres de las configuraciones
 app.get('/', (req : Request, res :  Response) => {
     try{
-        res.send(listaNombresConfig())
+        res.send(configuracion.listaNombresConfig())
     } catch (error){
         console.log("ERROR:" + error)
     }
 });
 
+//Recibe la configuración seleccionada y la cantidad y devuelve la lista correspondiente
 app.post('/', async (req, res) => {
     try {
         var numero = req.body.numero;
         var eleccion = req.body.eleccion;
-        var lista = elegirAlgoritmo(eleccion, numero)
-        res.send(lista)
+        var listaCodigos = configuracion.elegirAlgoritmo(eleccion, numero)
+        res.send(listaCodigos)
     }catch(error){
         console.log("ERROR:" + error)
     }
  });
 
-app.listen(4201, '127.0.0.1', function() {
+ //Servidor en puerto 4201
+app.listen(puerto, '127.0.0.1', function() {
     console.log('Server listening on port 4201');
 });
+
