@@ -10,6 +10,8 @@ abstract class Config {
       this.prefijo = prefijo;
       this.sufijo = sufijo;
     }
+
+    abstract getListaCodigos(number: number) : string[]
 }
 
 export class Secuencial extends Config{

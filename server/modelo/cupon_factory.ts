@@ -1,6 +1,10 @@
 import { Secuencial, Par, Primo } from "../modelo/config";
 
-export class CuponFactory {
+interface CuponFactoryMethod {
+    createCupon(nombre : string, json : any) : any
+}
+
+export class CuponFactory implements CuponFactoryMethod {
     createCupon(nombre, json){
       if(nombre === "Números secuenciales") {
         return new Secuencial(json);
@@ -13,7 +17,7 @@ export class CuponFactory {
       if(nombre === "Números primos") {
         return new Primo(json);
       }
-      
+
       console.log('Error')
     }
 }

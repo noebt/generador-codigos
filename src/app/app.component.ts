@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
 import { ServicioService } from './servicio/servicio.service';
 
 @Component({
@@ -15,7 +14,7 @@ export class AppComponent {
   public listaCupones : any
   public data : any
   
-  constructor(private service: ServicioService, private http : HttpClient) {
+  constructor(private service: ServicioService) {
     this.data = service.data
   }
 
