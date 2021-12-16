@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { ServicioService } from './servicio/servicio.service';
 
 @Component({
   selector: 'app-root',
@@ -12,20 +13,16 @@ export class AppComponent {
   public seleccion : any
   public selectedConfig : any
   public listaCupones : any
-
-  data = this.http.get<string[]>('http://localhost:4201');
+  public data : any
   
-  constructor(private http : HttpClient) { }
+  constructor(private service: ServicioService, private http : HttpClient) {
+    this.data = service.data
+  }
 
-   public async enviarDatos() {
-    this.seleccion = {numero : this.inputNumero, eleccion : this.selectedConfig}
-    this.http.post<any>('http://localhost:4201', JSON.stringify(this.seleccion), {
-      headers: {
-        "Content-Type" : "application/json"
-      },
-    }).subscribe(
-      datos => {this.listaCupones = datos},
-      error => console.log("ERROR: " + error));
+   public enviarDatos() {
+     this.service.getCupones(this.inputNumero, this.seleccion, this.selectedConfig).subscribe(
+       data => this.listaCupones = data
+     )
   }
 }
 

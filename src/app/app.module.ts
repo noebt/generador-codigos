@@ -11,6 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import { ServicioService } from './servicio/servicio.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatListModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [ServicioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
