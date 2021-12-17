@@ -1,18 +1,17 @@
 import express from 'express';
 import { Request, Response}  from 'express';
-import { EleccionConfiguracion } from './controllers/eleccion-configuracion';
+import { listaNombresConfig, elegirAlgoritmo } from './controllers/eleccion-configuracion';
 
 var cors = require('cors');
 const app = express();
 const puerto = 4201;
 app.use(cors());
 app.use(express.json())
-var configuracion : EleccionConfiguracion = new EleccionConfiguracion()
 
 //Envía los nombres de las configuraciones
 app.get('/', (req : Request, res :  Response) => {
     try{
-        res.send(configuracion.listaNombresConfig())
+        res.send(listaNombresConfig())
     } catch (error){
         console.log("ERROR:" + error)
     }
@@ -23,7 +22,7 @@ app.post('/', async (req, res) => {
     try {
         var numero = req.body.numero;
         var eleccion = req.body.eleccion;
-        var listaCodigos = configuracion.elegirAlgoritmo(eleccion, numero)
+        var listaCodigos = elegirAlgoritmo(eleccion, numero)
         res.send(listaCodigos)
     }catch(error){
         console.log("ERROR:" + error)
