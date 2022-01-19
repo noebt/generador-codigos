@@ -13,11 +13,11 @@ export abstract class Algorithm {
       this.filling = filling
     }
 
-    getFilling(longitud: number): number {
-        return this.filling.getFillingNumber(longitud)
+    getFilling(){
+        return this.filling.getFillingNumber(this.longitud)
     }
 
-    getCompleteCoupon (codigoGenerado: string) {
+    getCompleteCoupon(codigoGenerado: string){
         return this.filling.getCompleteCoupon(codigoGenerado)
     }
 }

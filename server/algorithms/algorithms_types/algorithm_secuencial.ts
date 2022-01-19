@@ -14,7 +14,7 @@ export class Secuencial extends Algorithm implements CouponAlgorithm {
         var listaCodigos = []
         var numero : String
         var numeroCupon : string
-        var relleno : number = this.getFilling(this.longitud)
+        var relleno : number = this.getFilling()
         for (var i = 0; i < this.nCupones; ++i){
             numero = String(i)
             numeroCupon = numero.padStart(relleno, "0");

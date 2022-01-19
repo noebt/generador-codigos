@@ -14,7 +14,7 @@ export class Primo extends Algorithm implements CouponAlgorithm {
         var listaCodigos = []
         var numero : String
         var numeroCupon : string
-        var relleno : number = this.getFilling(this.longitud)
+        var relleno : number = this.getFilling()
         for (var i = 0; i < this.nCupones; ++i){
             if (this.esPrimo(i)){
                 numero = String(i)
