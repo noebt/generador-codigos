@@ -10,8 +10,8 @@ export class SufixFilling implements ICompleteCoupon{
     getCompleteCoupon(codigoGenerado: string): string {
         return codigoGenerado + this.sufix
     }
-    
+
     getFillingNumber(longitud: number){
-            return longitud -  (this.sufix.length)
+        return longitud -  (this.sufix.length)
     }
 }
