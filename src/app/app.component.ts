@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ServicioService } from './servicio/servicio.service';
 
 @Component({
@@ -7,20 +8,26 @@ import { ServicioService } from './servicio/servicio.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-  public inputNumero : any
-  public seleccion : any
-  public selectedConfig : any
-  public listaCupones : any
-  public data : any
+export class AppComponent{
+  inputNumero : number
+  seleccion : undefined
+  selectedConfig : string 
+  listaCupones : undefined
+  data : Observable<string[]>
   
   constructor(private service: ServicioService) {
-    this.data = service.data
+    this.inputNumero = 0
+    this.selectedConfig = ""
+    this.data = service.getData()
+  }
+
+  setListaCupones (lista : undefined){
+    this.listaCupones = lista
   }
 
    public enviarDatos() {
      this.service.getCupones(this.inputNumero, this.seleccion, this.selectedConfig).subscribe(
-       data => this.listaCupones = data
+       data => this.setListaCupones(data)
      )
   }
 }

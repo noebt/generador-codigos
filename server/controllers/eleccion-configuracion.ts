@@ -1,4 +1,5 @@
-import { CuponFactory } from "../modelo/cupon_factory";
+import { CuponFactory } from "../coupons/cupon_factory";
+import { CouponList } from "../coupons/coupon_list";
 
 var data = require("../config/configuraciones.json");
 
@@ -15,7 +16,9 @@ export function listaNombresConfig () {
 export function elegirAlgoritmo (config: string, cantidad: number) {
     var listaCodigos = []
     const factory = new CuponFactory();
-    const configElegida = factory.createCupon(config, data); 
-    listaCodigos = configElegida.getListaCodigos(cantidad)
+    const couponList = new CouponList(factory.createCupon(config, data, cantidad))
+    listaCodigos = couponList.getCuponList();
+    //const configElegida : CouponAlgorithm = factory.createCupon(config, data); 
+    //listaCodigos = configElegida.getListaCodigos(cantidad)
     return listaCodigos
 }

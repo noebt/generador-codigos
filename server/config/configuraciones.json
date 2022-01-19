@@ -3,13 +3,11 @@
         {
             "nombre": "Números secuenciales",
             "longitud": 8, 
-            "prefijo": "COD",
-            "sufijo": ""
+            "sufijo": "COD"
         },
         {
             "nombre": "Números pares",
             "longitud": 9, 
-            "prefijo": "PAR",
             "sufijo": "PP"
         },
         {
@@ -17,6 +15,10 @@
             "longitud": 12, 
             "prefijo": "PRI",
             "sufijo": "2021"
+        },
+        {
+            "nombre": "Carácteres aleatorios",
+            "longitud": 12
         }
     ] 
 }
