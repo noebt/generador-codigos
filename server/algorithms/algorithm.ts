@@ -1,4 +1,4 @@
-import { ICompleteCoupon } from "../interfaces/interface_complete_coupon"
+import { ICompleteCoupon } from "./interfaces/interface_complete_coupon"
 
 export abstract class Algorithm {
     longitud: number

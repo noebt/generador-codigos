@@ -1,7 +1,7 @@
-import { CouponAlgorithm } from "../interfaces/interface_coupon_algorithm";
-import { Algorithm } from "./algorithm";
+import { ICouponAlgorithm } from "../interfaces/interface_coupon_algorithm";
+import { Algorithm } from "../algorithm";
 
-export class RandomCharacters extends Algorithm implements CouponAlgorithm {
+export class RandomCharacters extends Algorithm implements ICouponAlgorithm {
     constructor(json: any, numeroCupones: number) {
         super(json.configuraciones[3].nombre, 
           json.configuraciones[3].longitud, 

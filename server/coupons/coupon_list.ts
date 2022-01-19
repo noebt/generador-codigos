@@ -1,8 +1,8 @@
-import { CouponAlgorithm } from "../algorithms/interfaces/interface_coupon_algorithm"
+import { ICouponAlgorithm } from "../algorithms/interfaces/interface_coupon_algorithm"
 
 export class CouponList {
-    coupon : CouponAlgorithm
-    constructor(myCoupon : CouponAlgorithm){
+    coupon : ICouponAlgorithm
+    constructor(myCoupon : ICouponAlgorithm){
         this.coupon = myCoupon
     }
 

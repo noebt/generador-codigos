@@ -1,8 +1,8 @@
-import { Algorithm } from "./algorithm";
-import { CouponAlgorithm } from "../interfaces/interface_coupon_algorithm";
-import { ICompleteCoupon, SufixFilling } from "../interfaces/interface_complete_coupon";
+import { Algorithm } from "../algorithm";
+import { ICouponAlgorithm } from "../interfaces/interface_coupon_algorithm";
+import { SufixFilling } from "../complete_coupon_filling/sufix_filling";
 
-export class Par extends Algorithm implements CouponAlgorithm {
+export class Par extends Algorithm implements ICouponAlgorithm {
     constructor(json: any, numeroCupones: number) {
       super(json.configuraciones[1].nombre, 
         json.configuraciones[1].longitud, 

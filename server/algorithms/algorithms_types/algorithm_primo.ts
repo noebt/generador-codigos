@@ -1,8 +1,8 @@
-import { Algorithm } from "./algorithm";
-import { CouponAlgorithm } from "../interfaces/interface_coupon_algorithm";
-import { PrefixAndSufixFilling } from "../interfaces/interface_complete_coupon"
+import { Algorithm } from "../algorithm";
+import { ICouponAlgorithm } from "../interfaces/interface_coupon_algorithm";
+import { PrefixAndSufixFilling } from "../complete_coupon_filling/prefix_sufix_filling";
 
-export class Primo extends Algorithm implements CouponAlgorithm {
+export class Primo extends Algorithm implements ICouponAlgorithm {
     constructor(json: any, numeroCupones: number) {
       super(json.configuraciones[2].nombre, 
         json.configuraciones[2].longitud, 
